@@ -1,28 +1,156 @@
-Description du projet
+ Weather Application - Docker & CI/CD
 
-Ce projet consiste en une application météo composée d'un frontend et d'un backend,
-conteneurisés séparément et orchestrés via Docker Compose. L'objectif est d'assurer une
-gestion automatisée du déploiement et des tests grâce à une pipeline CI/CD.
+A weather application built with **Node.js**, **Express**, **HTML/CSS/JavaScript**, containerized with **Docker** and automated with **GitHub Actions**.
 
-Architecture : 
-- L'application est séparée en deux services indépendants mais communicants :
-          Backend : Développé avec Node.js + Express.
-          Frontend : Interface utilisateur en HTML/CSS/JS servie par Nginx
-          Orchestration : Gestion des conteneurs via docker-compose.yml
-  
-Prérequis : Docker et Docker Compose installés sur votre machine
+---
 
-Installation et Lancement
-Pour lancer l'application localement, exécutez la commande suivante à la racine du projet: 
-* docker-compose up --build
-* Le backend sera accessible sur le port 3000.
-* Le frontend sera accessible sur le port 80.
+ Features
 
-CI/CD
-- Le projet intègre une automatisation du workflow via  GitHub Actions]:
-  1.Build : Récupération du code et construction automatique des images Docker
-  2.Test : Vérification des dépendances et de l'accessibilité des services.
-  3.Déploiement : Déploiement automatique si les tests sont validés.
+* Current weather by city
+* Weather forecast
+* REST API with Express
+* Frontend with HTML/CSS/JavaScript
+* Docker containerization
+* Multi-container architecture
+* CI/CD pipeline with GitHub Actions
 
-Auteur
-Heriniaina Tiavina
+---
+
+ Architecture
+
+```
+┌─────────────┐
+│  Frontend   │
+│  Nginx       │
+│ Port : 80   │
+└──────┬──────┘
+       │ HTTP
+       ▼
+┌─────────────┐
+│ Backend API │
+│ Node.js     │
+│ Express     │
+│ Port : 3000 │
+└─────────────┘
+       │
+       ▼
+OpenWeatherMap API
+```
+
+---
+
+ Project Structure
+
+```
+application-meteo-docker-cicd
+│
+├── backend
+│   ├── Dockerfile
+│   ├── package.json
+│   └── server.js
+│
+├── frontend
+│   ├── Dockerfile
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── nginx.conf
+│
+├── .github
+│   └── workflows
+│       └── ci-cd.yml
+│
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+ Technologies
+
+* Node.js
+* Express.js
+* HTML / CSS / JavaScript
+* Docker
+* Docker Compose
+* Nginx
+* GitHub Actions
+* OpenWeatherMap API
+
+---
+
+ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ramangalahyheriniaina-byte/Application_M-t-o_Docker_-_CICD
+cd application-meteo-docker-cicd
+```
+
+Build containers:
+
+```bash
+docker compose build
+```
+
+Run containers:
+
+```bash
+docker compose up
+```
+
+---
+
+ Access
+
+Frontend:
+
+```
+http://localhost
+```
+
+Backend API:
+
+```
+http://localhost:3000
+```
+
+---
+
+ CI/CD Pipeline
+
+The project uses GitHub Actions to:
+
+* Install dependencies
+* Build Docker images
+* Run tests
+* Validate containers
+* Deploy automatically
+
+---
+
+Screenshots
+
+## Docker build
+
+![Docker Build]
+<img width="832" height="361" alt="image" src="https://github.com/user-attachments/assets/35c4b1a4-1aad-4547-93ec-ddf3d83503c8" />
+
+---
+
+## Running containers
+
+![Docker Compose]
+<img width="1050" height="359" alt="image" src="https://github.com/user-attachments/assets/16d510db-e5c9-470f-9060-d65de0c44eb0" />
+
+---
+
+ Author
+
+**Heriniaina Ramangalahy**
+
+Bachelor's Degree in Computer Science
+Specialisation: DevOps & System Administration
+
+
